@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Build outputs & installers
+dist/
+out/
+build/
+*.exe
+
+# System & IDE files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log

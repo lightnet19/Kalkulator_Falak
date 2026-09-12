@@ -1,0 +1,56 @@
+{
+  "name": "kalkulator-falak",
+  "version": "1.1.0",
+  "description": "Kalkulator Falak - dikembangkan oleh Fuad Baidāwī Al-Fajri, berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember",
+  "main": "main.js",
+  "author": {
+    "name": "Fuad Baidāwī Al-Fajri",
+    "role": "Pengembang Aplikasi"
+  },
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run build:css && electron .",
+    "build:css": "tailwindcss -i ./src/input.css -o ./src/output.css --minify",
+    "dist": "npm run build:css && electron-builder --win nsis"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.3.3",
+    "autoprefixer": "^10.5.6",
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12",
+    "postcss": "^8.5.28",
+    "tailwindcss": "^4.3.3"
+  },
+  "build": {
+    "appId": "id.nu.wuluhan.kalkulatorfalak",
+    "productName": "Kalkulator Falak",
+    "copyright": "Copyright © 2026 Fuad Baidāwī Al-Fajri / Lembaga Falakiyah MWCNU Wuluhan Jember",
+    "files": [
+      "index.html",
+      "main.js",
+      "assets/**/*",
+      "vendor/**/*",
+      "src/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    }
+  },
+  "contributors": [
+    {
+      "name": "Lembaga Falakiyah MWCNU Wuluhan Jember",
+      "role": "Pembuat Aplikasi Asal"
+    }
+  ],
+  "dependencies": {
+    "mathjs": "^15.2.0"
+  }
+}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Fuad Baidāwī Al-Fajri">
+    <meta name="description" content="Kalkulator Falak — dikembangkan oleh Fuad Baidāwī Al-Fajri, berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lembaga Falakiyah NU Wuluhan Jember - Kalkulator Falak 2-Baris</title>
+    <link rel="stylesheet" href="src/output.css">
+    <script src="vendor/math.min.js"></script>
+</head>
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-4">
+
+    <div class="max-w-md w-full calc-card-3d rounded-2xl p-4 space-y-2.5">
+        
+        <!-- Header Kalkulator -->
+        <div class="flex items-center justify-between border-b border-slate-700/80 pb-2.5">
+            <!-- Tepi Kiri: Logo + Nama Lembaga 2-Baris -->
+            <div class="flex items-center gap-2 sm:gap-2.5">
+                <img src="assets/logo-nu.png" alt="Logo Nahdlatul Ulama" class="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-md">
+                <div>
+                    <h1 class="text-xs sm:text-sm font-bold text-emerald-400 tracking-wide block leading-tight">Lembaga Falakiyah NU</h1>
+                    <span class="text-[10px] sm:text-[11px] font-medium text-slate-300 tracking-wide block mt-0.5">Wuluhan Jember</span>
+                </div>
+            </div>
+
+            <!-- Tepi Kanan: Judul Kalkulator & Indikator DEG/FORMAT -->
+            <div class="flex flex-col items-end gap-1.5">
+                <span class="text-[10px] sm:text-[11px] font-normal text-white tracking-wide block">Kalkulator Falak 2-Baris</span>
+                <div class="flex items-center gap-1.5">
+                    <button id="degRadBtn" onclick="toggleDegRad()" aria-label="Toggle Satuan Sudut (DEG atau RAD)" class="btn-3d px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-950 text-emerald-400 border border-emerald-500/50 hover:bg-emerald-900 transition">
+                        DEG
+                    </button>
+                    <button id="formatToggleBtn" onclick="toggleResultFormat()" aria-label="Ubah Format Hasil (Desimal DD atau DMS)" class="btn-3d px-2 py-0.5 text-[11px] font-bold rounded bg-amber-950 text-amber-400 border border-amber-500/50 hover:bg-amber-900 transition flex items-center gap-1" title="Klik untuk mengubah format hasil (Desimal <-> DMS)">
+                        <span>FORMAT:</span>
+                        <span id="formatModeBadge" class="underline">DD</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Display Area (2-Baris 3D Screen) -->
+        <div class="screen-3d rounded-xl px-3 py-2 flex flex-col justify-between h-28 relative">
+            
+            <!-- Baris 1: Formula / Rumus Input -->
+            <div id="formulaDisplay" class="formula-font text-slate-200 text-base sm:text-lg overflow-x-auto whitespace-nowrap text-left no-scrollbar h-7 leading-7 tracking-wide">
+                <!-- Cursor & Rumus Di-render via JS -->
+            </div>
+            
+            <!-- Baris 2: Hasil Real-Time -->
+            <div class="flex items-end justify-between gap-2 mt-0.5">
+                <div class="flex items-center gap-1 shrink-0 mb-0.5">
+                    <span id="statusText" class="formula-font text-[9px] text-slate-500 uppercase">READY</span>
+                    <span id="resultUnitBadge" class="formula-font text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-800 text-sky-300 border border-slate-700">DD</span>
+                </div>
+                <div id="resultDisplay" class="result-font text-2xl sm:text-3xl text-emerald-400 overflow-x-auto whitespace-nowrap text-right no-scrollbar leading-none">
+                    0
+                </div>
+            </div>
+        </div>
+
+        <!-- Control Bar Navigasi Kursor -->
+        <div class="flex items-center justify-between gap-2 bg-slate-900/90 py-1 px-2.5 rounded-lg border border-slate-800 shadow-inner">
+            <span class="text-[9px] font-semibold text-slate-400 uppercase tracking-wider">Navigasi Kursor:</span>
+            <div class="flex items-center gap-1.5">
+                <button onclick="moveCursorLeft()" aria-label="Geser Kursor ke Kiri" class="btn-3d btn-nav px-3 py-0.5 rounded text-[11px] font-bold transition flex items-center gap-1" title="Geser Kursor ke Kiri">
+                    <span>&#9668;</span> <span>Kiri</span>
+                </button>
+                <button onclick="moveCursorRight()" aria-label="Geser Kursor ke Kanan" class="btn-3d btn-nav px-3 py-0.5 rounded text-[11px] font-bold transition flex items-center gap-1" title="Geser Kursor ke Kanan">
+                    <span>Kanan</span> <span>&#9658;</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Grid Tombol Kalkulator 3D -->
+        <div class="grid grid-cols-5 gap-1.5 text-xs">
+            
+            <!-- Row 1 -->
+            <button onclick="clearAll()" aria-label="Bersihkan Seluruh Input (AC)" class="btn-3d btn-action py-2 rounded-lg font-bold transition">AC</button>
+            <button onclick="backspace()" aria-label="Hapus Karakter Terakhir (DEL)" class="btn-3d btn-del py-2 rounded-lg font-bold transition">DEL</button>
+            <button onclick="insertAtCursor('(')" aria-label="Kurung Buka" class="btn-3d btn-func py-2 rounded-lg font-bold transition">(</button>
+            <button onclick="insertAtCursor(')')" aria-label="Kurung Tutup" class="btn-3d btn-func py-2 rounded-lg font-bold transition">)</button>
+            <button onclick="insertAtCursor('\u00F7')" aria-label="Operator Pembagian" class="btn-3d btn-op py-2 rounded-lg font-bold transition text-sm">&divide;</button>
+
+            <!-- Row 2 -->
+            <button onclick="insertAtCursor('sin ')" aria-label="Fungsi Sinus" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: S">sin</button>
+            <button onclick="insertAtCursor('cos ')" aria-label="Fungsi Kosinus" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: C">cos</button>
+            <button onclick="insertAtCursor('tan ')" aria-label="Fungsi Tangen" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: T">tan</button>
+            <button onclick="insertAtCursor('^')" aria-label="Operasi Pangkat (x^y)" class="btn-3d btn-func py-2 rounded-lg font-bold transition">xʸ</button>
+            <button onclick="insertAtCursor('\u00D7')" aria-label="Operator Perkalian" class="btn-3d btn-op py-2 rounded-lg font-bold transition text-sm">&times;</button>
+
+            <!-- Row 3 -->
+            <button onclick="insertAtCursor('asin ')" aria-label="Fungsi Invers Sinus (ArcSin)" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: Shift + S">sin⁻¹</button>
+            <button onclick="insertAtCursor('acos ')" aria-label="Fungsi Invers Kosinus (ArcCos)" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: Shift + C">cos⁻¹</button>
+            <button onclick="insertAtCursor('atan ')" aria-label="Fungsi Invers Tangen (ArcTan)" class="btn-3d btn-func py-2 rounded-lg font-bold transition" title="Shortkey: Shift + T">tan⁻¹</button>
+            <button onclick="insertAtCursor('√')" aria-label="Fungsi Akar Kuadrat" class="btn-3d btn-func py-2 rounded-lg font-bold transition">√</button>
+            <button onclick="insertAtCursor('-')" aria-label="Operator Pengurangan" class="btn-3d btn-op py-2 rounded-lg font-bold transition text-sm">-</button>
+
+            <!-- Row 4 -->
+            <button onclick="insertAtCursor('log ')" aria-label="Fungsi Logaritma Basis 10" class="btn-3d btn-func py-2 rounded-lg font-bold transition">log</button>
+            <button onclick="insertAtCursor('7')" aria-label="Angka 7" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">7</button>
+            <button onclick="insertAtCursor('8')" aria-label="Angka 8" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">8</button>
+            <button onclick="insertAtCursor('9')" aria-label="Angka 9" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">9</button>
+            <button onclick="insertAtCursor('+')" aria-label="Operator Penjumlahan" class="btn-3d btn-op py-2 rounded-lg font-bold transition text-sm">+</button>
+
+            <!-- Row 5 -->
+            <button onclick="insertAtCursor('ln ')" aria-label="Fungsi Logaritma Natural" class="btn-3d btn-func py-2 rounded-lg font-bold transition">ln</button>
+            <button onclick="insertAtCursor('4')" aria-label="Angka 4" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">4</button>
+            <button onclick="insertAtCursor('5')" aria-label="Angka 5" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">5</button>
+            <button onclick="insertAtCursor('6')" aria-label="Angka 6" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">6</button>
+            <button onclick="insertAtCursor('^2')" aria-label="Fungsi Kuadrat (x²)" class="btn-3d btn-func py-2 rounded-lg font-bold transition">x²</button>
+
+            <!-- Row 6 -->
+            <button onclick="appendDMS()" aria-label="Simbol Derajat Menit Detik / Konversi Format" class="btn-3d btn-dms py-2 rounded-lg font-bold transition flex flex-col items-center justify-center relative group" title="Shortkeys: d (&deg;), ' (menit), &quot; (detik)">
+                <span class="text-xs font-bold leading-none">&deg; ' "</span>
+                <span class="text-[8px] font-normal text-sky-200 mt-0.5">DMS / Conv</span>
+            </button>
+            <button onclick="insertAtCursor('1')" aria-label="Angka 1" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">1</button>
+            <button onclick="insertAtCursor('2')" aria-label="Angka 2" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">2</button>
+            <button onclick="insertAtCursor('3')" aria-label="Angka 3" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">3</button>
+            <button onclick="insertAtCursor('ANS')" aria-label="Hasil Terakhir (ANS)" class="btn-3d btn-func py-2 rounded-lg font-bold transition">ANS</button>
+
+            <!-- Row 7 -->
+            <button onclick="insertAtCursor('\u03C0')" aria-label="Konstanta Pi (π)" class="btn-3d btn-func py-2 rounded-lg font-bold transition">&pi;</button>
+            <button onclick="insertAtCursor('0')" aria-label="Angka 0" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">0</button>
+            <button onclick="insertAtCursor('.')" aria-label="Koma Desimal" class="btn-3d btn-num py-2 rounded-lg font-bold transition text-base">.</button>
+            <button onclick="calculate()" aria-label="Hitung Hasil (Sama Dengan)" class="btn-3d btn-equals col-span-2 py-2 rounded-lg font-bold transition text-lg">=</button>
+
+        </div>
+
+        <!-- Footer / Panduan Penggunaan & Shortkey -->
+        <div class="space-y-1 text-[10px] text-slate-400 text-center pt-2 border-t border-slate-800/80 leading-tight">
+            <p class="text-slate-300">💡 Setelah menekan tombol <b>=</b>, Anda dapat langsung menggeser kursor dan mengedit rumus tanpa takut rumusnya terhapus. Tekan <b>AC</b> untuk mereset seluruhnya.</p>
+            <p>⌨️ <b>Shortkey:</b> <span class="text-sky-300">s/c/t</span> (sin/cos/tan) | <span class="text-sky-300">Shift+S/C/T</span> (invers) | <span class="text-amber-300">d</span> (&deg;) | <span class="text-amber-300">'</span> (menit) | <span class="text-amber-300">"</span> (detik)</p>
+        </div>
+    </div>
+
+    <!-- Logic Engine Kalkulator Scientific -->
+    <script src="src/calculator.js"></script>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         Kalkulator Falak
+         Dikembangkan oleh : Fuad Baidāwī Al-Fajri
+         Berdasarkan aplikasi dari : Lembaga Falakiyah MWCNU Wuluhan Jember
+         Versi : 1.1.0-beta
+         ═══════════════════════════════════════════════════════════ -->
+</body>
+</html>
