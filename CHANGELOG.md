@@ -19,8 +19,10 @@ dan mengikuti [Semantic Versioning](https://semver.org/).
 
 ### Rilis Stabil Versi 1.1.0
 - **Keamanan:** Hapus `eval()` dan migrasi ke evaluator aman `math.evaluate()` dari `mathjs`
+- **Dual Target & Vercel:** Dukungan rilis ganda (Windows Desktop App & Web App Vercel via `vercel.json`)
+- **PWA (Progressive Web App):** Penambahan `manifest.webmanifest` & `sw.js` (Service Worker) agar web app dapat di-install di smartphone (Android/iOS) dan dipakai 100% offline
 - **Aset & Hotfix:** Logo NU (`assets/logo-nu.png`) dan Ikon Aplikasi Windows (`assets/icon.ico`)
-- **Offline & Arsitektur:** Bundling Tailwind CSS lokal (`src/output.css`), pemisahan `src/calculator.js`, dan `src/preload.js`
+- **Offline & Arsitektur:** Bundling Tailwind CSS lokal (`src/output.css`), pemisahan `src/calculator.js`, dan `src/preload.js` dengan API fallback otomatis
 - **UX & Polish:** Pesan error ramah pengguna, validasi operator ganda, dan atribut aksesibilitas `aria-label`
 
 ---

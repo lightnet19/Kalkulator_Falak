@@ -25,6 +25,26 @@ Tambahkan entri baru di ATAS (terbaru di paling atas).
 - ...
 ```
 
+### [2026-09-12] — Dukungan Dual-Target (Windows Desktop + Vercel Web App & PWA)
+**Kontributor:** Fuad Baidāwī Al-Fajri
+**Milestone:** M4 (Ekstensi Vercel & PWA)
+**Status:** DONE
+
+#### Yang Dikerjakan:
+- Membuat konfigurasi Zero-Config Vercel (`vercel.json`)
+- Membuat Web App Manifest (`manifest.webmanifest`) untuk dukungan PWA
+- Membuat Service Worker (`sw.js`) untuk caching aset offline di smartphone (Android/iOS)
+- Menambahkan meta tags PWA di `index.html` (`theme-color`, `apple-mobile-web-app-capable`, icon link)
+- Menambahkan safe API fallback di `src/calculator.js` (`window.falakAPI = window.falakAPI || ...`)
+- Mendaftarkan `manifest.webmanifest` dan `sw.js` ke `package.json`
+- Memperbarui `README.md` dengan instruksi 1-Click Deploy Vercel & Panduan PWA
+
+#### Hasil Verification:
+- Aplikasi dapat berjalan sebagai Windows Desktop App (Electron) dan Web App (Vercel) dari codebase yang sama
+- Aplikasi web dapat di-install ke layar utama HP dan bekerja 100% offline via Service Worker
+
+---
+
 ### [2026-09-12] — Milestone 4: Release v1.1.0 Stabil
 **Kontributor:** Fuad Baidāwī Al-Fajri
 **Milestone:** M4

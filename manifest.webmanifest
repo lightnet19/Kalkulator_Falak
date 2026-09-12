@@ -1,0 +1,24 @@
+{
+  "name": "Kalkulator Falak - Lembaga Falakiyah NU Wuluhan Jember",
+  "short_name": "Kalkulator Falak",
+  "description": "Kalkulator Falak 2-Baris — dikembangkan oleh Fuad Baiḍāwī Al-Fajri, berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#059669",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "assets/logo-nu.png",
+      "sizes": "200x200",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}

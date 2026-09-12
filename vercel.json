@@ -1,0 +1,6 @@
+{
+  "buildCommand": "npm run build:css",
+  "outputDirectory": ".",
+  "framework": null,
+  "cleanUrls": true
+}

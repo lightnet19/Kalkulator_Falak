@@ -1,183 +1,130 @@
-# Kalkulator Falak
+# Kalkulator Falak 2-Baris
 ### Lembaga Falakiyah Nahdlatul Ulama — Wuluhan Jember
 
-[![Versi](https://img.shields.io/badge/versi-1.0.0-blue)](CHANGELOG.md)
-[![Platform](https://img.shields.io/badge/platform-Windows%2010%2F11-lightgrey)](https://www.microsoft.com/windows)
-[![Electron](https://img.shields.io/badge/Electron-38.x-47848F?logo=electron)](https://electronjs.org)
+[![Versi](https://img.shields.io/badge/versi-1.1.0-blue)](CHANGELOG.md)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web%20%7C%20PWA-emerald)](https://github.com/lightnet19/Kalkulator_Falak)
+[![Deploy](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 [![Lisensi](https://img.shields.io/badge/lisensi-MIT-green)](LICENSE)
 
 ---
 
 ## Tentang Aplikasi
 
-**Kalkulator Falak** adalah aplikasi desktop kalkulator ilmiah yang dirancang khusus
-untuk kebutuhan **ilmu falak** (astronomi Islam). Aplikasi ini berjalan sepenuhnya
-**offline** sebagai aplikasi desktop Windows mandiri.
+**Kalkulator Falak** adalah aplikasi kalkulator ilmiah 2-baris yang dirancang khusus untuk kebutuhan perhitungan **ilmu falak** (astronomi Islam). 
+Aplikasi ini bersifat **Dual-Target**:
+1. **Windows Desktop App** (Electron .exe installer) untuk penggunaan desktop offline.
+2. **Web App & PWA** (Deployable ke Vercel / Netlify / PWA) yang dapat dipasang di smartphone (Android/iOS) dan dibuka 100% offline.
 
-### Fitur Utama
+Aplikasi dikembangkan oleh **Fuad Baiḍāwī Al-Fajri**, berdasarkan karya asli **Lembaga Falakiyah MWCNU Wuluhan Jember**.
+
+---
+
+## Fitur Utama
 
 | Fitur | Deskripsi |
 |-------|-----------|
 | **Kalkulator 2-Baris** | Display formula di baris 1 + hasil real-time di baris 2 |
-| **Trigonometri Lengkap** | sin, cos, tan, sin⁻¹, cos⁻¹, tan⁻¹ |
-| **Mode DEG / RAD** | Toggle satuan sudut derajat atau radian |
-| **Input DMS** | Input langsung format Derajat° Menit' Detik" |
-| **Konversi DD ↔ DMS** | Toggle format hasil antara desimal dan DMS |
-| **Fungsi Matematika** | log, ln, √, x², xʸ, π |
-| **Navigasi Kursor** | Edit di mana saja dalam formula tanpa menghapus |
-| **Memory ANS** | Gunakan hasil terakhir dalam kalkulasi berikutnya |
-| **Keyboard Shortcut** | Input cepat via keyboard |
-| **Offline Penuh** | Tidak memerlukan koneksi internet |
+| **Trigonometri Lengkap** | sin, cos, tan, sin⁻¹, cos⁻¹, tan⁻¹ (dengan mode DEG/RAD) |
+| **Input & Konversi DMS** | Support Derajat° Menit' Detik" dan konversi otomatis DD ↔ DMS |
+| **Fungsi Matematika** | log (log10), ln, √, x², xʸ, π |
+| **Evaluasi Aman** | Menggunakan `mathjs` (`math.evaluate()`) tanpa `eval()` |
+| **Keamanan & Aksesibilitas** | Full `aria-label` WCAG & isolasi konteks Electron IPC |
+| **Support PWA Offline** | Tambahkan ke Home Screen HP (Android/iOS) & jalankan 100% offline |
+| **Dual-Target Desktop & Web** | Kompatibel penuh untuk installer Windows (.exe) dan deployment Vercel |
 
 ---
 
-## Cara Menggunakan
+## Cara Deploy ke Vercel (Web App)
 
-### Input Formula
-1. Ketik angka dan operator menggunakan tombol di layar atau keyboard
-2. Hasil preview tampil otomatis di baris bawah
-3. Tekan **=** atau **Enter** untuk menghitung
+Aplikasi ini sudah dilengkapi dengan konfigurasi Zero-Config Vercel (`vercel.json`).
 
-### Keyboard Shortcut
+### Opsi 1: Via Dashboard Vercel (1-Click Deploy)
+1. Buka [Vercel Dashboard](https://vercel.com/new).
+2. Import repositori **`lightnet19/Kalkulator_Falak`**.
+3. Vercel akan otomatis mendeteksi perintah build `npm run build:css`.
+4. Klik **Deploy**!
 
-| Tombol | Fungsi |
-|--------|--------|
-| `s` | sin |
-| `c` | cos |
-| `t` | tan |
-| `Shift+S` | sin⁻¹ (asin) |
-| `Shift+C` | cos⁻¹ (acos) |
-| `Shift+T` | tan⁻¹ (atan) |
-| `d` | Simbol derajat (°) |
-| `'` | Simbol menit (') |
-| `"` | Simbol detik (") |
-| `ArrowLeft` / `ArrowRight` | Navigasi kursor |
-| `Home` / `End` | Awal / Akhir formula |
-| `Enter` / `=` | Hitung |
-| `Backspace` | Hapus karakter sebelum kursor |
-| `Escape` | AC — Reset semua |
-| `*` | Operator kali (×) |
-| `/` | Operator bagi (÷) |
-
-### Input DMS (Derajat-Menit-Detik)
-1. Ketik derajat: `90`
-2. Tekan `d` atau tombol **° ' "**: tambah simbol `°` → `90°`
-3. Ketik menit: `90°30`
-4. Tekan `'` atau tombol **° ' "**: tambah simbol `'` → `90°30'`
-5. Ketik detik: `90°30'0`
-6. Tekan `"` atau tombol **° ' "**: tambah simbol `"` → `90°30'0"`
-
-### Konversi Format Hasil
-- Klik tombol **FORMAT: DD** untuk toggle antara Desimal (DD) dan DMS
-- Saat menekan tombol **° ' "** setelah tekan `=`, juga akan toggle format
+### Opsi 2: Via Vercel CLI
+```bash
+npm install -g vercel
+vercel
+```
 
 ---
 
-## Instalasi
+## Panduan PWA (Instalasi di Smartphone / Tablet)
+
+Saat membuka aplikasi Web di browser smartphone:
+1. **Android (Chrome):** Ketuk menu titik tiga (⋮) → **Tambahkan ke Layar Utama (Add to Home Screen)** / **Install App**.
+2. **iOS (Safari):** Ketuk tombol Share (↑) → **Add to Home Screen**.
+3. Aplikasi akan terpasang di HP dan dapat dibuka kapan saja tanpa koneksi internet.
+
+---
+
+## Cara Menjalankan Secara Lokal (Pengembang)
 
 ### Prasyarat
-- Windows 10 atau Windows 11 (64-bit)
-- [Node.js LTS](https://nodejs.org/) — diperlukan hanya untuk build dari source
+- Node.js (v18+)
+- npm
 
-### Cara 1: Menggunakan Installer (Direkomendasikan)
-1. Download file `Kalkulator Falak Setup 1.x.x.exe` dari folder `dist/`
-2. Jalankan installer
-3. Ikuti petunjuk instalasi
-4. Buka aplikasi dari Desktop atau Start Menu
-
-### Cara 2: Menjalankan dari Source Code
-
-```powershell
-# 1. Pastikan Node.js LTS sudah terinstall
-node --version
-
-# 2. Clone atau extract proyek ke folder lokal
-
-# 3. Masuk ke direktori proyek
+### Langkah-langkah
+```bash
+# 1. Clone repositori
+git clone https://github.com/lightnet19/Kalkulator_Falak.git
 cd Kalkulator_Falak
 
-# 4. Install dependensi
+# 2. Install dependensi
 npm install
 
-# 5. Jalankan aplikasi
+# 3. Jalankan aplikasi desktop (Electron)
 npm start
-```
 
-### Cara 3: Build Installer dari Source
+# 4. Kompilasi stylesheet Tailwind CSS
+npm run build:css
 
-```powershell
-# Install dependensi
-npm install
-
-# Build installer .exe
+# 5. Build installer Windows NSIS (.exe)
 npm run dist
-
-# Installer tersedia di:
-# dist/Kalkulator Falak Setup 1.x.x.exe
 ```
 
 ---
 
-## Struktur Proyek
+## Struktur Direktori
 
 ```
 Kalkulator_Falak/
-├── assets/               <- Ikon dan aset gambar
-│   ├── icon.ico
-│   ├── icon.png
-│   └── logo-nu.png
-├── docs/                 <- Dokumentasi proyek
-│   ├── PRD.md            <- Product Requirements Document
-│   ├── DEVPLAN.md        <- Development Plan
-│   ├── DEVLOG.md         <- Development Log
-│   └── ARCHITECTURE.md  <- Dokumentasi Arsitektur
-├── src/                  <- Source code terpisah (v1.1.0+)
-│   ├── calculator.js
-│   └── preload.js
-├── index.html            <- UI utama kalkulator
-├── main.js               <- Electron main process
-├── package.json          <- Konfigurasi npm & build
-├── README.md             <- File ini
-├── CHANGELOG.md          <- Riwayat perubahan versi
-└── SECURITY.md           <- Kebijakan keamanan
+├── assets/
+│   ├── icon.ico              <- Ikon aplikasi Windows (.ico)
+│   ├── icon.png              <- Ikon PWA 512x512 px
+│   └── logo-nu.png           <- Logo Nahdlatul Ulama
+├── docs/
+│   ├── PRD.md
+│   ├── DEVPLAN.md
+│   ├── DEVLOG.md
+│   ├── ARCHITECTURE.md
+│   └── SECURITY.md
+├── src/
+│   ├── calculator.js         <- Engine logika kalkulator (IIFE)
+│   ├── preload.js            <- Electron IPC preload script
+│   ├── input.css             <- Source Tailwind CSS
+│   └── output.css            <- Minified compiled CSS
+├── vendor/
+│   └── math.min.js           <- Library evaluator matematika offline
+├── index.html                <- Main UI
+├── main.js                   <- Electron main process
+├── manifest.webmanifest      <- PWA Manifest configuration
+├── sw.js                     <- PWA Service Worker offline cache
+├── vercel.json               <- Vercel deployment configuration
+├── tailwind.config.js        <- Tailwind CSS configuration
+├── postcss.config.js         <- PostCSS configuration
+├── package.json
+├── CHANGELOG.md
+└── README.md
 ```
 
 ---
 
-## Pengembangan
-
-Lihat dokumen berikut untuk informasi pengembangan lebih lanjut:
-
-- [PRD.md](docs/PRD.md) — Product Requirements Document
-- [DEVPLAN.md](docs/DEVPLAN.md) — Rencana pengembangan dan milestone
-- [DEVLOG.md](docs/DEVLOG.md) — Log aktivitas pengembangan
-- [ARCHITECTURE.md](docs/ARCHITECTURE.md) — Dokumentasi arsitektur teknis
-- [CHANGELOG.md](CHANGELOG.md) — Riwayat perubahan versi
-- [SECURITY.md](SECURITY.md) — Kebijakan keamanan
-
----
-
-
 ## Kredit & Pengembang
 
-| Peran | Nama / Lembaga |
-|-------|----------------|
-| **Pengembang Aplikasi** | Fuad Baidāwī Al-Fajri |
-| **Pembuat Aplikasi Asal** | Lembaga Falakiyah MWCNU Wuluhan Jember |
-
-Aplikasi ini dikembangkan oleh **Fuad Baidāwī Al-Fajri** sebagai pengembangan dan penyempurnaan
-dari aplikasi kalkulator falak yang telah dibuat oleh **Lembaga Falakiyah MWCNU Wuluhan Jember**.
-
----
-## Lisensi
-
-MIT License — Copyright (c) 2026 Fuad Baidāwī Al-Fajri
-
-Berdasarkan karya Lembaga Falakiyah MWCNU Wuluhan Jember.
-
----
-
-## Kontak
-
-**Lembaga Falakiyah Nahdlatul Ulama**
-Wuluhan, Jember, Jawa Timur
+- **Dikembangkan Oleh:** **Fuad Baiḍāwī Al-Fajri**
+- **Berdasarkan Karya Asal:** **Lembaga Falakiyah MWCNU Wuluhan Jember**
+- **Lisensi:** MIT License

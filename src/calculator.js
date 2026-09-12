@@ -23,6 +23,9 @@ const KalkulatorFalak = (function () {
     let resultUnitBadge;
     let statusText;
 
+    // Safe API Fallback untuk Browser / Vercel Web App
+    window.falakAPI = window.falakAPI || { appVersion: '1.1.0', platform: 'web' };
+
     window.addEventListener('DOMContentLoaded', () => {
         formulaDisplay = document.getElementById('formulaDisplay');
         resultDisplay = document.getElementById('resultDisplay');
@@ -32,6 +35,13 @@ const KalkulatorFalak = (function () {
         statusText = document.getElementById('statusText');
 
         updateDisplay();
+
+        // Registrasi PWA Service Worker (Offline Support di Browser/Mobile)
+        if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
+            navigator.serviceWorker.register('./sw.js').catch((err) => {
+                console.log('SW Registration skipped/failed:', err);
+            });
+        }
     });
 
     function toggleDegRad() {
