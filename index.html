@@ -19,29 +19,30 @@
 
     <div class="max-w-md w-full calc-card-3d rounded-2xl p-4 space-y-2.5">
         
-        <!-- Header Kalkulator (Light Theme - Falakiyah Scientific) -->
-        <div class="flex items-center justify-between border-b border-slate-200 pb-2.5">
-            <!-- Tepi Kiri: Logo + Nama Lembaga 2-Baris -->
-            <div class="flex items-center gap-2 sm:gap-2.5">
-                <img src="assets/logo-nu.png" alt="Logo Nahdlatul Ulama" class="w-11 h-11 sm:w-12 sm:h-12 object-contain drop-shadow-sm">
-                <div>
-                    <h1 class="text-xs sm:text-sm font-bold text-emerald-800 tracking-tight block leading-tight">Lembaga Falakiyah NU</h1>
-                    <span class="text-[10px] sm:text-[11px] font-medium text-slate-500 tracking-wide block mt-0.5">Wuluhan Jember</span>
+        <!-- Header Kalkulator (Proporsional & Seimbang) -->
+        <div class="flex items-center justify-between border-b border-slate-200 pb-3 gap-2">
+            <!-- Tepi Kiri: Logo NU + Nama Lembaga Proporsional -->
+            <div class="flex items-center gap-2.5 min-w-0">
+                <!-- Wadah Logo NU Proporsional (Terkunci 40px × 40px) -->
+                <div class="w-10 h-10 shrink-0 rounded-xl bg-emerald-50 border border-emerald-200/80 flex items-center justify-center p-1 shadow-2xs">
+                    <img src="assets/logo-nu.png" alt="Logo Nahdlatul Ulama" class="w-full h-full object-contain">
+                </div>
+                <!-- Teks Identitas Lembaga Terpadu -->
+                <div class="flex flex-col min-w-0 justify-center">
+                    <h1 class="text-xs sm:text-[13px] font-bold text-slate-900 tracking-tight leading-none truncate">Lembaga Falakiyah NU</h1>
+                    <span class="text-[10px] sm:text-[11px] font-semibold text-emerald-700 tracking-wide mt-1 leading-none truncate">MWCNU Wuluhan Jember</span>
                 </div>
             </div>
 
-            <!-- Tepi Kanan: Judul Kalkulator & Indikator DEG/FORMAT -->
-            <div class="flex flex-col items-end gap-1.5">
-                <span class="text-[10px] sm:text-[11px] font-semibold text-slate-700 tracking-wide block">Kalkulator Falak 2-Baris</span>
-                <div class="flex items-center gap-1.5">
-                    <button id="degRadBtn" onclick="toggleDegRad()" aria-label="Toggle Satuan Sudut (DEG atau RAD)" class="btn-3d px-2 py-0.5 text-[11px] font-bold rounded-md bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition shadow-2xs">
-                        DEG
-                    </button>
-                    <button id="formatToggleBtn" onclick="toggleResultFormat()" aria-label="Ubah Format Hasil (Desimal DD atau DMS)" class="btn-3d px-2 py-0.5 text-[11px] font-bold rounded-md bg-amber-50 text-amber-800 border border-amber-300 hover:bg-amber-100 transition flex items-center gap-1 shadow-2xs" title="Klik untuk mengubah format hasil (Desimal <-> DMS)">
-                        <span class="text-[10px] text-amber-900/80">FORMAT:</span>
-                        <span id="formatModeBadge" class="underline font-extrabold text-amber-900">DD</span>
-                    </button>
-                </div>
+            <!-- Tepi Kanan: Kontrol Mode Sudut (DEG/RAD) & Format Hasil (DD/DMS) -->
+            <div class="flex items-center gap-1.5 shrink-0">
+                <button id="degRadBtn" onclick="toggleDegRad()" aria-label="Toggle Satuan Sudut (DEG atau RAD)" class="btn-3d px-2.5 py-1 text-[11px] font-bold rounded-lg bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition shadow-2xs" title="Satuan Sudut: Degree / Radian">
+                    DEG
+                </button>
+                <button id="formatToggleBtn" onclick="toggleResultFormat()" aria-label="Ubah Format Hasil (Desimal DD atau DMS)" class="btn-3d px-2.5 py-1 text-[11px] font-bold rounded-lg bg-amber-50 text-amber-800 border border-amber-300 hover:bg-amber-100 transition flex items-center gap-1 shadow-2xs" title="Klik untuk mengubah format hasil (Desimal <-> DMS)">
+                    <span class="text-[10px] font-normal text-amber-900/80">FMT:</span>
+                    <span id="formatModeBadge" class="font-extrabold text-amber-900">DD</span>
+                </button>
             </div>
         </div>
 
