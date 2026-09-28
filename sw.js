@@ -5,6 +5,11 @@
  * Berdasarkan aplikasi dari : Lembaga Falakiyah MWCNU Wuluhan Jember
  */
 
+/**
+ * PERINGATAN SINKRONISASI CACHE:
+ * 'CACHE_NAME' harus diperbarui secara manual setiap kali merilis versi baru di 'package.json' (SSOT).
+ * Mengubah nama cache memicu event 'activate' untuk membersihkan cache versi lama secara otomatis.
+ */
 const CACHE_NAME = 'kalkulator-falak-v1.1.0';
 const ASSETS_TO_CACHE = [
   './',

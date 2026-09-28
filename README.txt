@@ -18,6 +18,7 @@ INSTALASI CEPAT
 DOKUMEN PENTING
 ---------------
 - README.md           : Panduan lengkap
+- DESIGN.md           : Spesifikasi desain sistem 3D & responsivitas mobile
 - CHANGELOG.md        : Riwayat perubahan versi
 - SECURITY.md         : Kebijakan keamanan
 - docs/PRD.md         : Product Requirements Document
@@ -30,6 +31,6 @@ PENGEMBANG
 Dikembangkan oleh : Fuad Baidāwī Al-Fajri
 Berdasarkan karya : Lembaga Falakiyah MWCNU Wuluhan Jember
 
-Versi: 1.0.0
+Versi: 1.1.0
 Lisensi: MIT
 

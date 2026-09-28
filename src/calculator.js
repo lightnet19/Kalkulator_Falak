@@ -1,5 +1,5 @@
 /**
- * Kalkulator Falak — Logic Engine (v1.1.0-beta)
+ * Kalkulator Falak — Logic Engine (v1.1.0)
  * 
  * Dikembangkan oleh : Fuad Baidāwī Al-Fajri
  * Berdasarkan aplikasi dari : Lembaga Falakiyah MWCNU Wuluhan Jember
@@ -23,7 +23,19 @@ const KalkulatorFalak = (function () {
     let resultUnitBadge;
     let statusText;
 
+    // Haptic Feedback untuk Mobile Touch
+    function triggerHaptic(duration = 10) {
+        if (typeof navigator !== 'undefined' && navigator.vibrate) {
+            try {
+                navigator.vibrate(duration);
+            } catch (e) {
+                // Silent catch jika vibration tidak didukung atau dibatasi
+            }
+        }
+    }
+
     // Safe API Fallback untuk Browser / Vercel Web App
+    // CATATAN: 'appVersion' diselaraskan secara manual dengan "version" di package.json (Single Source of Truth)
     window.falakAPI = window.falakAPI || { appVersion: '1.1.0', platform: 'web' };
 
     window.addEventListener('DOMContentLoaded', () => {
@@ -35,6 +47,11 @@ const KalkulatorFalak = (function () {
         statusText = document.getElementById('statusText');
 
         updateDisplay();
+
+        // Inisialisasi Haptic Feedback untuk semua Tombol 3D
+        document.querySelectorAll('.btn-3d').forEach((btn) => {
+            btn.addEventListener('pointerdown', () => triggerHaptic(10), { passive: true });
+        });
 
         // Registrasi PWA Service Worker (Offline Support di Browser/Mobile)
         if ('serviceWorker' in navigator && window.location.protocol.startsWith('http')) {
@@ -152,7 +169,7 @@ const KalkulatorFalak = (function () {
             evaluated = false;
         }
         if (cursorPos > 0) {
-            const funcs = ['asin ', 'acos ', 'atan ', 'sin ', 'cos ', 'tan ', 'log ', 'ln ', 'asin', 'acos', 'atan', 'sin', 'cos', 'tan', 'log', 'ln', 'ANS'];
+            const funcs = ['asin ', 'acos ', 'atan ', 'sin ', 'cos ', 'tan ', 'log ', 'ln ', 'ANS'];
             let beforeCursor = formula.slice(0, cursorPos);
             let matchedLen = 1;
             

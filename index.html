@@ -2,6 +2,7 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
     <meta name="author" content="Fuad Baidāwī Al-Fajri">
     <meta name="description" content="Kalkulator Falak — dikembangkan oleh Fuad Baidāwī Al-Fajri, berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember">
     <meta name="theme-color" content="#059669">
@@ -14,7 +15,7 @@
     <link rel="stylesheet" href="src/output.css">
     <script src="vendor/math.min.js"></script>
 </head>
-<body class="min-h-screen flex items-center justify-center p-2 sm:p-4">
+<body class="min-h-screen flex items-center justify-center p-2 sm:p-4 select-none">
 
     <div class="max-w-md w-full calc-card-3d rounded-2xl p-4 space-y-2.5">
         
@@ -45,7 +46,7 @@
         </div>
 
         <!-- Display Area (2-Baris 3D Screen) -->
-        <div class="screen-3d rounded-xl px-3 py-2 flex flex-col justify-between h-28 relative">
+        <div class="screen-3d rounded-xl px-3 py-2 flex flex-col justify-between h-28">
             
             <!-- Baris 1: Formula / Rumus Input -->
             <div id="formulaDisplay" class="formula-font text-slate-200 text-base sm:text-lg overflow-x-auto whitespace-nowrap text-left no-scrollbar h-7 leading-7 tracking-wide">
@@ -56,7 +57,7 @@
             <div class="flex items-end justify-between gap-2 mt-0.5">
                 <div class="flex items-center gap-1 shrink-0 mb-0.5">
                     <span id="statusText" class="formula-font text-[9px] text-slate-500 uppercase">READY</span>
-                    <span id="resultUnitBadge" class="formula-font text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-800 text-sky-300 border border-slate-700">DD</span>
+                    <span id="resultUnitBadge" class="formula-font text-[8px] font-bold px-1.5 py-0.5 rounded bg-slate-800 text-sky-300 border border-slate-700">DD</span>
                 </div>
                 <div id="resultDisplay" class="result-font text-2xl sm:text-3xl text-emerald-400 overflow-x-auto whitespace-nowrap text-right no-scrollbar leading-none">
                     0
@@ -147,7 +148,7 @@
          Kalkulator Falak
          Dikembangkan oleh : Fuad Baidāwī Al-Fajri
          Berdasarkan aplikasi dari : Lembaga Falakiyah MWCNU Wuluhan Jember
-         Versi : 1.1.0-beta
+         Versi : 1.1.0
          ═══════════════════════════════════════════════════════════ -->
 </body>
 </html>

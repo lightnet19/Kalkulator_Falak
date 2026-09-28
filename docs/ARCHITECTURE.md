@@ -2,8 +2,8 @@
 ## Kalkulator Falak | Dikembangkan oleh Fuad Baidāwī Al-Fajri
 > Berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember
 
-**Versi:** 1.0.0
-**Tanggal:** 12 September 2026
+**Versi:** 1.1.0
+**Tanggal:** 28 September 2026
 
 ---
 
@@ -231,3 +231,13 @@ dist/Kalkulator Falak Setup 1.x.x.exe  (NSIS Installer)
 **Keputusan:** Build Tailwind CSS secara lokal saat development
 **Alasan:** Aplikasi desktop harus offline-capable penuh
 **Trade-off:** Tambah langkah build di workflow development
+
+### ADR-004: Desain Sistem 3D Realistis & Mobile Haptic Feedback (v1.1.0)
+**Keputusan:** Mengadopsi estetika physical skeuomorphic 3D (tombol cembung ber-bevel, layar cekung berpendar) dan haptic feedback via Web Vibration API.
+**Alasan:** Meningkatkan kepuasan visual serta memberikan kepastian input sentuh (tactile confirmation) saat digunakan pada smartphone di lapangan.
+**Trade-off:** Memerlukan CSS styling berlapis (box-shadow ganda, gradient bertingkat) yang didefinisikan secara rapi di `DESIGN.md`.
+
+### ADR-005: Dual-Target Deployment (Desktop Electron + PWA Web App via Vercel)
+**Keputusan:** Menyatukan basis kode tunggal (single codebase) untuk menghasilkan Windows Desktop Installer (.exe) dan Web App PWA yang di-deploy ke Vercel.
+**Alasan:** Memudahkan pemeliharaan (tidak ada duplikasi kode), pengguna lapangan dapat mengakses via URL ponsel tanpa instalasi manual .exe.
+**Trade-off:** Diperlukan isolasi fallback API (`window.falakAPI`) agar kode renderer tidak bergantung eksklusif pada runtime Node.js/Electron.

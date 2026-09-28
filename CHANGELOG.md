@@ -9,6 +9,23 @@ dan mengikuti [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
+### Ditambahkan & Dioptimasi
+- **Dokumentasi Desain:** Pembuatan [DESIGN.md](file:///c:/Projects/Kalkulator_Falak/DESIGN.md) lengkap mencakup filosofi desain 3D, token warna, tipografi, anatomi tombol, responsivitas mobile, dan panduan QA.
+- **Responsivitas Mobile:** Penambahan tag viewport eksplisit (`width=device-width, initial-scale=1.0, maximum-scale=5.0`) di [index.html](file:///c:/Projects/Kalkulator_Falak/index.html).
+- **Mobile Touch Handling:** Properti `touch-action: manipulation` dan `-webkit-tap-highlight-color: transparent` pada tombol untuk menghilangkan delay 300ms tap di browser smartphone.
+- **Dukungan Layar Sempit & Safe Area:** Media query `< 360px` dan safe-area insets (`env(safe-area-inset-*)`) untuk ponsel modern ber-notch dan taskbar.
+- **Haptic Feedback:** Integrasi getaran taktil halus (10ms) menggunakan Web Vibration API saat tombol ditekan pada smartphone Android.
+- **Code Review & Quality Hardening:**
+  - Memperbaiki class invalid Tailwind `py-0.2` menjadi `py-0.5` pada badge satuan hasil di [index.html](file:///c:/Projects/Kalkulator_Falak/index.html).
+  - Menghapus class redundant `relative` pada wadah `.screen-3d` di [index.html](file:///c:/Projects/Kalkulator_Falak/index.html).
+  - Menyelaraskan teks versi pada komentar footer [index.html](file:///c:/Projects/Kalkulator_Falak/index.html) dan header [src/calculator.js](file:///c:/Projects/Kalkulator_Falak/src/calculator.js) menjadi `v1.1.0`.
+  - Mengisolasi safe-area insets menggunakan `@supports` di [src/input.css](file:///c:/Projects/Kalkulator_Falak/src/input.css) agar tidak bertabrakan dengan class padding Tailwind.
+  - Memperketat spesifisitas selector `.grid` menjadi `.calc-card-3d .grid` pada media query layar kecil di [src/input.css](file:///c:/Projects/Kalkulator_Falak/src/input.css).
+  - Membersihkan array `funcs` di fungsi `backspace()` [src/calculator.js](file:///c:/Projects/Kalkulator_Falak/src/calculator.js) dari duplikat entri tanpa spasi.
+  - Menambahkan catatan SSOT (Single Source of Truth) versi pada [src/calculator.js](file:///c:/Projects/Kalkulator_Falak/src/calculator.js), [src/preload.js](file:///c:/Projects/Kalkulator_Falak/src/preload.js), dan [sw.js](file:///c:/Projects/Kalkulator_Falak/sw.js).
+  - Memisahkan purpose `any` dan `maskable` serta menambahkan entri ikon resolusi 192x192 pada [manifest.webmanifest](file:///c:/Projects/Kalkulator_Falak/manifest.webmanifest).
+  - Memperbarui [SECURITY.md](file:///c:/Projects/Kalkulator_Falak/SECURITY.md) mencakup penyelesaian migrasi `eval()` dan catatan arsitektur deployment Vercel.
+
 ### Direncanakan (v1.2.0 - Fase 3)
 - Panel Riwayat Kalkulasi (10 perhitungan terakhir)
 - Mode Kalkulasi Falak Khusus (Equation of Time, Deklinasi Matahari)

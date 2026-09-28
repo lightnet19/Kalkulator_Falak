@@ -7,6 +7,7 @@
 
 const { contextBridge, ipcRenderer } = require('electron');
 
+// CATATAN: 'appVersion' diselaraskan secara manual dengan "version" di package.json (Single Source of Truth)
 contextBridge.exposeInMainWorld('falakAPI', {
     appVersion: '1.1.0',
     platform: process.platform

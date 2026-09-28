@@ -50,9 +50,13 @@ Kalkulator_Falak/
 │   └── output.css            <- Tailwind compiled CSS (generated)
 ├── index.html
 ├── main.js
+├── manifest.webmanifest      <- Konfigurasi PWA Mobile
+├── sw.js                     <- Service Worker Offline Cache
+├── vercel.json               <- Konfigurasi Deployment Vercel
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
+├── DESIGN.md                 <- Spesifikasi Design System 3D & Mobile UX
 ├── README.md
 ├── CHANGELOG.md
 └── SECURITY.md

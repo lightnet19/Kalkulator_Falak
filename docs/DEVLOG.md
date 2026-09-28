@@ -25,6 +25,37 @@ Tambahkan entri baru di ATAS (terbaru di paling atas).
 - ...
 ```
 
+### [2026-09-28] — Desain Sistem 3D Kompak, Mobile Touch UX, dan Eksekusi Code Review v1.1.0
+**Kontributor:** Fuad Baidāwī Al-Fajri
+**Milestone:** M4+ (Post-Release UI Modernization & Quality Hardening)
+**Status:** DONE
+
+#### Yang Dikerjakan:
+- Membuat dokumen spesifikasi desain komprehensif `DESIGN.md` (filosofi 3D realism, palet warna, tipografi, dan adaptasi mobile)
+- Mengoptimasi responsivitas mobile di `index.html` dan `src/input.css`:
+  - Tag viewport eksplisit dengan pinch-to-zoom yang aman
+  - Atribut sentuhan mobile: `touch-action: manipulation` dan `-webkit-tap-highlight-color: transparent`
+  - Safe-area insets (`env(safe-area-inset-*)`) menggunakan isolasi `@supports`
+  - Media query adaptif untuk layar kompak `< 360px`
+- Mengintegrasikan respons taktil Haptic Feedback (10ms) via Web Vibration API untuk interaksi layar sentuh smartphone Android
+- Menyelesaikan 11 temuan audit kualitas kode dari `code_review_report.md`:
+  - Memperbaiki class invalid Tailwind `py-0.2` -> `py-0.5` pada badge hasil
+  - Menghapus class redundant `relative` pada wadah `.screen-3d`
+  - Menyelaraskan nomor versi stabil `1.1.0` di seluruh komentar dan metadata
+  - Memperketat selector CSS `.calc-card-3d .grid`
+  - Membersihkan token fungsi tanpa spasi di `backspace()` (`src/calculator.js`)
+  - Menegaskan `package.json` sebagai Single Source of Truth (SSOT) untuk versi pada `calculator.js`, `preload.js`, dan `sw.js`
+  - Menyempurnakan `manifest.webmanifest` dengan ukuran standar PWA `192x192` serta pemisahan purpose `any` dan `maskable`
+  - Memperbarui `SECURITY.md` dengan catatan mitigasi deployment Vercel
+- Mengompilasi ulang stylesheet produksi dengan Tailwind CSS v4.3.3 (`npm run build:css`)
+
+#### Hasil Verification:
+- Tampilan kalkulator memiliki estetika 3D skeuomorfik yang kokoh, tajam, dan responsif di desktop maupun layar kecil smartphone
+- Build CSS bersih tanpa peringatan Tailwind
+- Seluruh 11 temuan review kode terselesaikan 100%
+
+---
+
 ### [2026-09-12] — Dukungan Dual-Target (Windows Desktop + Vercel Web App & PWA)
 **Kontributor:** Fuad Baidāwī Al-Fajri
 **Milestone:** M4 (Ekstensi Vercel & PWA)

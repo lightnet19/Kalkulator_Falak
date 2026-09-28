@@ -24,6 +24,9 @@ Aplikasi dikembangkan oleh **Fuad Baiḍāwī Al-Fajri**, berdasarkan karya asli
 | Fitur | Deskripsi |
 |-------|-----------|
 | **Kalkulator 2-Baris** | Display formula di baris 1 + hasil real-time di baris 2 |
+| **Desain 3D Skeuomorfik** | Antarmuka fisik realistis 3D (tactile buttons, inset display screen) |
+| **Responsif & Mobile-Friendly** | Dioptimalkan untuk semua ukuran layar (desktop, tablet, mobile < 360px) |
+| **Haptic Feedback** | Respon getaran taktil halus (10ms) saat tombol disentuh di smartphone |
 | **Trigonometri Lengkap** | sin, cos, tan, sin⁻¹, cos⁻¹, tan⁻¹ (dengan mode DEG/RAD) |
 | **Input & Konversi DMS** | Support Derajat° Menit' Detik" dan konversi otomatis DD ↔ DMS |
 | **Fungsi Matematika** | log (log10), ln, √, x², xʸ, π |
@@ -117,7 +120,9 @@ Kalkulator_Falak/
 ├── tailwind.config.js        <- Tailwind CSS configuration
 ├── postcss.config.js         <- PostCSS configuration
 ├── package.json
+├── DESIGN.md                 <- Spesifikasi Design System 3D & Mobile UX
 ├── CHANGELOG.md
+├── SECURITY.md
 └── README.md
 ```
 

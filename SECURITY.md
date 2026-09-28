@@ -43,17 +43,20 @@ webPreferences: {
 
 ## Masalah Keamanan yang Diketahui
 
-### [AKTIF] Penggunaan eval() — Prioritas Tinggi
-- **Status:** Akan diperbaiki di v1.0.2 (Milestone 1)
-- **Dampak:** Rendah dalam konteks offline desktop, namun tetap merupakan anti-pattern
-- **Mitigasi sementara:** Aplikasi berjalan offline dan tidak menerima input dari jaringan
-- **Perbaikan:** Ganti dengan math.js (lihat DEVPLAN.md — M1)
+### [TERSELESAIKAN] Penggunaan eval() — Prioritas Tinggi
+- **Status:** Selesai di v1.1.0
+- **Mitigasi:** Evaluasi ekspresi matematika kini menggunakan pustaka sandboxed `math.js` (vendor/math.min.js) dengan context engine yang aman.
+
+### [CATATAN ARSITEKTUR] Vercel Web Deployment (`vercel.json`)
+- **Status:** Mitigasi Terkelola
+- **Detail:** Penggunaan `outputDirectory: "."` pada `vercel.json` menjaga arsitektur root tetap simpel untuk PWA statis. File sensitif seperti `.env` atau credential tidak boleh diletakkan di root repositori. Jika di masa depan repositori memuat source code privat/server-side, disarankan memisahkan aset publik ke folder `public/` atau `dist/`.
 
 ---
 
 ## Praktik Keamanan yang Diterapkan
 
-- Tidak ada akses jaringan dari renderer process
+- Evaluasi ekspresi menggunakan math.js engine sandboxed
+- Tidak ada akses jaringan berbahaya dari renderer process
 - Tidak ada penyimpanan data sensitif
 - Tidak ada autentikasi atau data pengguna
 - Build produksi menonaktifkan DevTools
