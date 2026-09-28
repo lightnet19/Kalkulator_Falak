@@ -232,10 +232,10 @@ dist/Kalkulator Falak Setup 1.x.x.exe  (NSIS Installer)
 **Alasan:** Aplikasi desktop harus offline-capable penuh
 **Trade-off:** Tambah langkah build di workflow development
 
-### ADR-004: Desain Sistem 3D Realistis & Mobile Haptic Feedback (v1.1.0)
-**Keputusan:** Mengadopsi estetika physical skeuomorphic 3D (tombol cembung ber-bevel, layar cekung berpendar) dan haptic feedback via Web Vibration API.
-**Alasan:** Meningkatkan kepuasan visual serta memberikan kepastian input sentuh (tactile confirmation) saat digunakan pada smartphone di lapangan.
-**Trade-off:** Memerlukan CSS styling berlapis (box-shadow ganda, gradient bertingkat) yang didefinisikan secara rapi di `DESIGN.md`.
+### ADR-004: Desain Sistem Falakiyah Scientific Tactile Light Theme (v1.1.0)
+**Keputusan:** Mendesain ulang antarmuka menggunakan **Google Stitch MCP** dengan pendekatan *Tactile Precision Light Theme* (bodi putih murni, layar LCD recessed ice-sage/mint, teks ber-kontras tinggi, dan haptic feedback).
+**Alasan:** Tema gelap sebelumnya memiliki keterbacaan rendah di bawah pencahayaan sinar matahari langsung saat observasi lapangan. Tema terang ber-kontras tinggi (WCAG AAA) mengatasi silau dan mempermudah hisab falak secara akurat.
+**Trade-off:** Memerlukan penyesuaian styling komprehensif pada palet tombol dan badge dinamis JavaScript yang didefinisikan di `DESIGN.md` v2.0.0.
 
 ### ADR-005: Dual-Target Deployment (Desktop Electron + PWA Web App via Vercel)
 **Keputusan:** Menyatukan basis kode tunggal (single codebase) untuk menghasilkan Windows Desktop Installer (.exe) dan Web App PWA yang di-deploy ke Vercel.

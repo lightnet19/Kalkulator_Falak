@@ -66,8 +66,8 @@ const KalkulatorFalak = (function () {
         if (degRadBtn) {
             degRadBtn.innerText = isDeg ? 'DEG' : 'RAD';
             degRadBtn.className = isDeg 
-                ? 'btn-3d px-2 py-0.5 text-[11px] font-bold rounded bg-emerald-950 text-emerald-400 border border-emerald-500/50 hover:bg-emerald-900 transition'
-                : 'btn-3d px-2 py-0.5 text-[11px] font-bold rounded bg-sky-950 text-sky-400 border border-sky-500/50 hover:bg-sky-900 transition';
+                ? 'btn-3d px-2 py-0.5 text-[11px] font-bold rounded-md bg-emerald-50 text-emerald-800 border border-emerald-300 hover:bg-emerald-100 transition shadow-2xs'
+                : 'btn-3d px-2 py-0.5 text-[11px] font-bold rounded-md bg-sky-50 text-sky-800 border border-sky-300 hover:bg-sky-100 transition shadow-2xs';
         }
         liveEvaluate();
     }
@@ -83,11 +83,11 @@ const KalkulatorFalak = (function () {
         if (isDMSOutput) {
             formatModeBadge.innerText = 'DMS';
             resultUnitBadge.innerText = 'DMS';
-            resultUnitBadge.className = 'formula-font text-[8px] font-bold px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-500/50';
+            resultUnitBadge.className = 'formula-font text-[8px] font-bold px-1.5 py-0.5 rounded bg-amber-100 text-amber-800 border border-amber-300';
         } else {
             formatModeBadge.innerText = 'DD';
             resultUnitBadge.innerText = 'DD';
-            resultUnitBadge.className = 'formula-font text-[8px] font-bold px-1.5 py-0.2 rounded bg-slate-800 text-sky-300 border border-slate-700';
+            resultUnitBadge.className = 'formula-font text-[8px] font-bold px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 border border-emerald-300';
         }
     }
 

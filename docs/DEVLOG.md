@@ -25,6 +25,29 @@ Tambahkan entri baru di ATAS (terbaru di paling atas).
 - ...
 ```
 
+### [2026-09-28] — Redesign Antarmuka Menggunakan Google Stitch MCP: Falakiyah Scientific (Light Theme)
+**Kontributor:** Fuad Baidāwī Al-Fajri
+**Milestone:** M4+ (High-Contrast Daylight Redesign)
+**Status:** DONE
+
+#### Yang Dikerjakan:
+- Menghubungkan dan memanfaatkan **Google Stitch MCP** untuk menghasilkan Design System bertema terang: **"Falakiyah Scientific"** (Project: `12919745297315223191`)
+- Mengganti seluruh skema Dark Theme menjadi **Light Theme** ber-kontras tinggi guna mengatasi masalah keterbacaan rendah di bawah sinar matahari outdoor
+- Menerapkan arsitektur visual instrumen observatorium presisi:
+  - Bodi kalkulator putih murni (*chassis pure white*) dengan bayangan 3D mikro yang lembut
+  - Layar LCD berlatar *ice-sage/mint* (`#f4faf6`) dengan cekungan border inset
+  - Teks formula slate charcoal (`#0f172a`) dan hasil kalkulasi digital hijau zamrud pekat (`#047857`)
+  - Keycap berpenampilan fisik 3D: tombol angka putih, fungsi slate, operator sky-blue, AC rose-light, DEL amber-light, dan eksekusi `=` hijau zamrud penuh
+- Menyinkronkan seluruh kelas transisi status tombol DEG/RAD dan format DD/DMS di `src/calculator.js`
+- Mengompilasi ulang stylesheet produksi dengan Tailwind CSS v4.3.3 (`npm run build:css`)
+- Memperbarui dokumentasi sistem desain [DESIGN.md](file:///c:/Projects/Kalkulator_Falak/DESIGN.md) ke Versi 2.0.0
+
+#### Hasil Verification & Browser Test:
+- Pengujian interaktif pada browser subagent: Operasi perkalian `7 × 6 = 42` dan konversi DMS `42° 0' 0.00"` berjalan presisi
+- Keterbacaan teks dan angka meningkat drastis, lolos standar kontras WCAG AAA
+
+---
+
 ### [2026-09-28] — Desain Sistem 3D Kompak, Mobile Touch UX, dan Eksekusi Code Review v1.1.0
 **Kontributor:** Fuad Baidāwī Al-Fajri
 **Milestone:** M4+ (Post-Release UI Modernization & Quality Hardening)

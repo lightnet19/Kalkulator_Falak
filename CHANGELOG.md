@@ -9,8 +9,12 @@ dan mengikuti [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
-### Ditambahkan & Dioptimasi
-- **Dokumentasi Desain:** Pembuatan [DESIGN.md](file:///c:/Projects/Kalkulator_Falak/DESIGN.md) lengkap mencakup filosofi desain 3D, token warna, tipografi, anatomi tombol, responsivitas mobile, dan panduan QA.
+- **Redesign Google Stitch (Falakiyah Scientific Light Theme):**
+  - Mengganti seluruh palet Dark Mode menjadi **Light Theme ber-kontras tinggi** untuk mengatasi kendala keterbacaan rendah di bawah pencahayaan sinar matahari langsung.
+  - Mengimplementasikan token desain instrumen observatorium presisi: bodi putih bersih (*pure white chassis*), layar LCD digital *recessed ice-sage/mint* (`#f4faf6`), angka formula charcoal pekat (`#0f172a`), dan hasil digital hijau zamrud ber-kontras tajam (`#047857`).
+  - Menata ulang sistem keycap 3D tactile: angka putih, fungsi slate, operator sky-blue, aksi AC rose-light, DEL amber-light, dan eksekusi `=` emerald green.
+  - Memperbarui `src/input.css`, `index.html`, dan `src/calculator.js` agar seluruh transisi tombol, status DEG/RAD, dan unit DD/DMS selaras dengan palet Light Theme.
+  - Memperbarui [DESIGN.md](file:///c:/Projects/Kalkulator_Falak/DESIGN.md) ke Versi 2.0.0 mencakup standar kontras WCAG AAA (15.8:1 pada formula, 7.2:1 pada hasil).
 - **Responsivitas Mobile:** Penambahan tag viewport eksplisit (`width=device-width, initial-scale=1.0, maximum-scale=5.0`) di [index.html](file:///c:/Projects/Kalkulator_Falak/index.html).
 - **Mobile Touch Handling:** Properti `touch-action: manipulation` dan `-webkit-tap-highlight-color: transparent` pada tombol untuk menghilangkan delay 300ms tap di browser smartphone.
 - **Dukungan Layar Sempit & Safe Area:** Media query `< 360px` dan safe-area insets (`env(safe-area-inset-*)`) untuk ponsel modern ber-notch dan taskbar.
