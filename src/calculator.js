@@ -1,5 +1,5 @@
 /**
- * Kalkulator Falak — Logic Engine (v1.1.0)
+ * Kalkulator Falak — Logic Engine (v1.1.1)
  * 
  * Dikembangkan oleh : Fuad Baidāwī Al-Fajri
  * Berdasarkan aplikasi dari : Lembaga Falakiyah MWCNU Wuluhan Jember
@@ -36,7 +36,7 @@ const KalkulatorFalak = (function () {
 
     // Safe API Fallback untuk Browser / Vercel Web App
     // CATATAN: 'appVersion' diselaraskan secara manual dengan "version" di package.json (Single Source of Truth)
-    window.falakAPI = window.falakAPI || { appVersion: '1.1.0', platform: 'web' };
+    window.falakAPI = window.falakAPI || { appVersion: '1.1.1', platform: 'web' };
 
     window.addEventListener('DOMContentLoaded', () => {
         formulaDisplay = document.getElementById('formulaDisplay');

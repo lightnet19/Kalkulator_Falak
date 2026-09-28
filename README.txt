@@ -31,6 +31,6 @@ PENGEMBANG
 Dikembangkan oleh : Fuad Baidāwī Al-Fajri
 Berdasarkan karya : Lembaga Falakiyah MWCNU Wuluhan Jember
 
-Versi: 1.1.0
+Versi: 1.1.1
 Lisensi: MIT
 

@@ -1,7 +1,7 @@
 # Kalkulator Falak 2-Baris
 ### Lembaga Falakiyah Nahdlatul Ulama — Wuluhan Jember
 
-[![Versi](https://img.shields.io/badge/versi-1.1.0-blue)](CHANGELOG.md)
+[![Versi](https://img.shields.io/badge/versi-1.1.1-blue)](CHANGELOG.md)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web%20%7C%20PWA-emerald)](https://github.com/lightnet19/Kalkulator_Falak)
 [![Deploy](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 [![Lisensi](https://img.shields.io/badge/lisensi-MIT-green)](LICENSE)

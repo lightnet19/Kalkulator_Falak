@@ -7,8 +7,14 @@ dan mengikuti [Semantic Versioning](https://semver.org/).
 
 ---
 
-## [Unreleased]
+## [1.1.1] — 2026-09-28
 
+### Auto-Update Vercel & PWA Cache Fix
+- **PWA Service Worker:** Migrasi strategi caching `sw.js` dari *Cache-First* menjadi **Network-First with Dynamic Cache & Offline Fallback** agar browser pengguna di Vercel selalu otomatis mendapatkan pembaruan antarmuka terbaru secara instan saat online.
+- **Kompilasi Vercel Cloud:** Memindahkan `tailwindcss` dan `@tailwindcss/cli` ke `dependencies` di `package.json` untuk menjamin proses build Tailwind v4 di Vercel selalu berhasil 100%.
+- **Proporsi Header:** Menyelaraskan proporsi logo NU (40px) dan tipografi nama lembaga dengan kontrol mode di [index.html](file:///c:/Projects/Kalkulator_Falak/index.html).
+
+### Ditambahkan & Dioptimasi
 - **Redesign Google Stitch (Falakiyah Scientific Light Theme):**
   - Mengganti seluruh palet Dark Mode menjadi **Light Theme ber-kontras tinggi** untuk mengatasi kendala keterbacaan rendah di bawah pencahayaan sinar matahari langsung.
   - Mengimplementasikan token desain instrumen observatorium presisi: bodi putih bersih (*pure white chassis*), layar LCD digital *recessed ice-sage/mint* (`#f4faf6`), angka formula charcoal pekat (`#0f172a`), dan hasil digital hijau zamrud ber-kontras tajam (`#047857`).
