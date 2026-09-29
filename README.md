@@ -58,9 +58,9 @@ vercel
 ## Panduan PWA (Instalasi di Smartphone / Tablet)
 
 Saat membuka aplikasi Web di browser smartphone:
-1. **Android (Chrome):** Ketuk menu titik tiga (⋮) → **Tambahkan ke Layar Utama (Add to Home Screen)** / **Install App**.
-2. **iOS (Safari):** Ketuk tombol Share (↑) → **Add to Home Screen**.
-3. Aplikasi akan terpasang di HP dan dapat dibuka kapan saja tanpa koneksi internet.
+1. **Android (Chrome):** Ketuk menu titik tiga (⋮) $\rightarrow$ **Tambahkan ke Layar Utama (Add to Home Screen)** / **Install App**.
+2. **iOS (Safari):** Ketuk tombol Share (↑) $\rightarrow$ **Add to Home Screen**.
+3. **Auto-Update & Offline Mode:** Service Worker menggunakan strategi *Network-First with dynamic caching*. Saat online, aplikasi otomatis memperbarui tampilan ke versi terbaru dari Vercel; saat offline, aplikasi tetap berjalan 100% lancar menggunakan cache lokal.
 
 ---
 

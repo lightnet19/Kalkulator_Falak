@@ -25,6 +25,32 @@ Tambahkan entri baru di ATAS (terbaru di paling atas).
 - ...
 ```
 
+### [2026-09-28] — Rilis v1.1.1: Pembenahan Proporsi Header, Caching Network-First PWA, & Cloud Build Vercel
+**Kontributor:** Fuad Baidāwī Al-Fajri
+**Milestone:** M4+ (Auto-Update & Visual Polish Patch)
+**Status:** DONE
+
+#### Yang Dikerjakan:
+- **Penyelarasan Proporsi Header:**
+  - Mengunci wadah logo NU pada ukuran proporsional 40px × 40px (`w-10 h-10`) berlatar `bg-emerald-50` berbingkai lembut.
+  - Memperbaiki tata letak teks identitas "Lembaga Falakiyah NU" dan "MWCNU Wuluhan Jember" agar sejajar secara vertikal (*vertical center alignment*) dengan tombol kontrol mode di sisi kanan.
+  - Mengeliminasi teks redundan agar header tetap lapang dan tidak terpotong pada layar ponsel.
+- **Perbaikan Scanner Tailwind CSS v4:**
+  - Menambahkan direktif `@import "tailwindcss";` dan pemindai template `@source "../index.html";` serta `@source "./calculator.js";` di `src/input.css` agar utilitas Tailwind v4 terkompilasi penuh.
+- **Pembaruan Strategi Caching Service Worker (`sw.js`):**
+  - Mengubah strategi dari *Cache-First* menjadi **Network-First with Dynamic Cache Update & Offline Fallback**.
+  - Mengatasi kendala browser pengguna yang terkunci di cache versi lama saat membuka tautan Vercel. Saat terhubung internet, browser kini langsung menyajikan versi terbaru secara otomatis.
+- **Ketahanan Build Vercel Cloud:**
+  - Memindahkan package `@tailwindcss/cli` dan `tailwindcss` dari `devDependencies` ke `dependencies` di `package.json` untuk mencegah kegagalan perintah `npm run build:css` di lingkungan produksi Vercel.
+- **Bump Versi ke 1.1.1:**
+  - Menyelaraskan seluruh metadata versi di `package.json`, `index.html`, `src/calculator.js`, `src/preload.js`, `sw.js`, `README.md`, `README.txt`, dan `CHANGELOG.md`.
+
+#### Hasil Verification:
+- Header kalkulator tampil seimbang, proporsional, dan estetis di seluruh resolusi layar.
+- Perubahan antarmuka di Vercel langsung terupdate otomatis saat online dan tetap bekerja 100% saat offline.
+
+---
+
 ### [2026-09-28] — Redesign Antarmuka Menggunakan Google Stitch MCP: Falakiyah Scientific (Light Theme)
 **Kontributor:** Fuad Baidāwī Al-Fajri
 **Milestone:** M4+ (High-Contrast Daylight Redesign)

@@ -2,7 +2,7 @@
 ## Kalkulator Falak | Dikembangkan oleh Fuad Baidāwī Al-Fajri
 > Berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember
 
-**Versi:** 1.1.0
+**Versi:** 1.1.1
 **Tanggal:** 28 September 2026
 
 ---
@@ -241,3 +241,8 @@ dist/Kalkulator Falak Setup 1.x.x.exe  (NSIS Installer)
 **Keputusan:** Menyatukan basis kode tunggal (single codebase) untuk menghasilkan Windows Desktop Installer (.exe) dan Web App PWA yang di-deploy ke Vercel.
 **Alasan:** Memudahkan pemeliharaan (tidak ada duplikasi kode), pengguna lapangan dapat mengakses via URL ponsel tanpa instalasi manual .exe.
 **Trade-off:** Diperlukan isolasi fallback API (`window.falakAPI`) agar kode renderer tidak bergantung eksklusif pada runtime Node.js/Electron.
+
+### ADR-006: Strategi Caching PWA Network-First & Cloud Build Resilience (v1.1.1)
+**Keputusan:** Mengubah strategi fetch pada Service Worker (`sw.js`) dari *Cache-First* menjadi *Network-First with dynamic caching & offline fallback*, serta memindahkan tool build Tailwind CSS (`@tailwindcss/cli` dan `tailwindcss`) ke `dependencies` di `package.json`.
+**Alasan:** Strategi *Cache-First* menyebabkan browser pengguna terkunci pada cache lama dan tidak menerima auto-update dari Vercel saat deployment baru dirilis. Di samping itu, lingkungan build Vercel memerlukan dependensi CLI Tailwind di runtime production agar perintah kompilasi `npm run build:css` tidak gagal.
+**Trade-off:** Sedikit peningkatan konsumsi bandwidth saat online untuk memastikan aset selalu paling mutakhir, namun tetap memberikan keandalan offline penuh (PWA 100%) saat tanpa internet.

@@ -2,8 +2,8 @@
 ## Kalkulator Falak | Dikembangkan oleh Fuad Baidāwī Al-Fajri
 > Berdasarkan aplikasi Lembaga Falakiyah MWCNU Wuluhan Jember
 
-**Versi:** 1.0.0
-**Tanggal:** 12 September 2026
+**Versi:** 1.1.1
+**Tanggal:** 28 September 2026
 **Status:** Aktif
 
 ---
@@ -18,10 +18,11 @@ FASE 1 — Stabilisasi (v1.0.x)
   +-- M0: Hotfix Kritis     (fix logo, fix build)
   +-- M1: Security Fix      (hapus eval, pakai math.js)
 
-FASE 2 — Modernisasi (v1.1.0)
+FASE 2 — Modernisasi & Polish (v1.1.0 - v1.1.1)
   +-- M2: Offline & Arsitektur  (Tailwind lokal, pisah JS)
   +-- M3: Polish & UX           (ikon, error messages, a11y)
   +-- M4: Release v1.1.0        (build, test, distribusi)
+  +-- M4+: Redesign & Patch v1.1.1 (Light Theme Stitch, PWA Network-First, Header Fix)
 
 FASE 3 — Pengembangan Fitur (v1.2.0+)
   +-- M5: Riwayat Kalkulasi

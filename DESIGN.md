@@ -97,11 +97,16 @@ Setiap tombol dirancang dengan fisika *tactile keycap*:
 
 ## 5. Komponen UI & Layar LCD
 
-### 5.1 Header Panel
-- **Logo Institusi:** Logo NU Wuluhan Jember (`assets/logo-nu.png`) dengan drop-shadow lembut.
-- **Nama & Subtitle:** Teks hijau emerald gelap (`text-emerald-800`) dan slate (`text-slate-500`).
-- **Mode Toggle DEG/RAD:** Tombol tactile berlatar mint lembut (`bg-emerald-50 text-emerald-800 border-emerald-300`).
-- **Format Toggle DD/DMS:** Tombol tactile berlatar amber lembut (`bg-amber-50 text-amber-800 border-amber-300`).
+### 5.1 Header Panel (Proporsional & Simetris)
+- **Wadah Logo Institusi:** Logo NU Wuluhan Jember (`assets/logo-nu.png`) dikunci dalam container ergonomis `40px × 40px` (`w-10 h-10`) dengan sudut membulat `rounded-xl`, latar mint halus (`bg-emerald-50`), border lembut (`border-emerald-200/80`), dan padding internal `p-1`.
+- **Tipografi Lembaga Terpadu:**
+  - Baris 1: `Lembaga Falakiyah NU` (`text-xs sm:text-[13px] font-bold text-slate-900 leading-none`).
+  - Baris 2: `MWCNU Wuluhan Jember` (`text-[10px] sm:text-[11px] font-semibold text-emerald-700 leading-none mt-1`).
+  - Tinggi blok teks sejajar presisi dengan tinggi wadah logo 40px di sumbu vertikal.
+- **Kontrol Mode (Sisi Kanan):**
+  - **Mode Toggle DEG/RAD:** Tombol tactile berlatar mint lembut (`bg-emerald-50 text-emerald-800 border-emerald-300`).
+  - **Format Toggle DD/DMS:** Tombol tactile berlatar amber lembut (`bg-amber-50 text-amber-800 border-amber-300`).
+  - Tertata sejajar di garis tengah vertikal (*vertical center alignment*), menciptakan simetri horizontal yang bersih dan bebas elemen redundan.
 
 ### 5.2 Layar LCD Cekung (Screen 3D)
 - Latar bergradien lembut ice-sage (`#f4faf6`).
