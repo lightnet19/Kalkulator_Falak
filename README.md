@@ -2,9 +2,16 @@
 ### Lembaga Falakiyah Nahdlatul Ulama — Wuluhan Jember
 
 [![Versi](https://img.shields.io/badge/versi-1.1.1-blue)](CHANGELOG.md)
+[![Live Demo](https://img.shields.io/badge/Demo-kalkulator--falak.vercel.app-059669?logo=vercel&logoColor=white)](https://kalkulator-falak.vercel.app/)
 [![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20Web%20%7C%20PWA-emerald)](https://github.com/lightnet19/Kalkulator_Falak)
-[![Deploy](https://img.shields.io/badge/Deploy-Vercel-black?logo=vercel)](https://vercel.com)
 [![Lisensi](https://img.shields.io/badge/lisensi-MIT-green)](LICENSE)
+
+---
+
+## 🌐 Akses Langsung Aplikasi (Live Web App & PWA)
+
+Aplikasi dapat langsung diakses secara online maupun dipasang (*install*) sebagai Progressive Web App (PWA) di perangkat Anda melalui:
+👉 **[https://kalkulator-falak.vercel.app/](https://kalkulator-falak.vercel.app/)**
 
 ---
 
@@ -13,7 +20,7 @@
 **Kalkulator Falak** adalah aplikasi kalkulator ilmiah 2-baris yang dirancang khusus untuk kebutuhan perhitungan **ilmu falak** (astronomi Islam). 
 Aplikasi ini bersifat **Dual-Target**:
 1. **Windows Desktop App** (Electron .exe installer) untuk penggunaan desktop offline.
-2. **Web App & PWA** (Deployable ke Vercel / Netlify / PWA) yang dapat dipasang di smartphone (Android/iOS) dan dibuka 100% offline.
+2. **Web App & PWA** (Deploy di Vercel: [kalkulator-falak.vercel.app](https://kalkulator-falak.vercel.app/)) yang dapat dipasang di smartphone (Android/iOS) dan dibuka 100% offline.
 
 Aplikasi dikembangkan oleh **Fuad Baiḍāwī Al-Fajri**, berdasarkan karya asli **Lembaga Falakiyah MWCNU Wuluhan Jember**.
 

@@ -5,6 +5,10 @@ CATATAN: Dokumentasi lengkap telah dipindahkan ke README.md
 Silakan buka README.md untuk panduan lengkap penggunaan, instalasi,
 dan pengembangan aplikasi ini.
 
+LIVE WEB APP / PWA:
+-------------------
+https://kalkulator-falak.vercel.app/
+
 INSTALASI CEPAT
 ---------------
 1. Install Node.js LTS dari https://nodejs.org/
